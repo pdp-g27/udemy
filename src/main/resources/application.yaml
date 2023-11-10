@@ -1,0 +1,7 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:postgresql://db.okqvrrqxebewpewqffbn.supabase.co:5432/postgres
+    username: postgres
+    password: 8XBD_ba_FtuKFFe
