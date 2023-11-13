@@ -1,2 +1,4 @@
 databaseChangeLog:
-  -
+  - include:
+      file: 13.11.2023/create-user-group.yaml
+      relativeToChangelogFile: true
