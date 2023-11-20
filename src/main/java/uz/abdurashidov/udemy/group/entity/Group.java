@@ -1,9 +1,7 @@
 package uz.abdurashidov.udemy.group.entity;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Type;
 
 import java.util.UUID;
 

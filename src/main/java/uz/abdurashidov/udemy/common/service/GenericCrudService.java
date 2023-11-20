@@ -1,5 +1,6 @@
 package uz.abdurashidov.udemy.common.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -12,6 +13,8 @@ public abstract class GenericCrudService<ENTITY, ID, CREATE_DTO, UPDATE_DTO, RES
     protected abstract GenericSpecificationRepository<ENTITY, ID> getRepository();
 
     protected abstract GenericDtoMapper<ENTITY, CREATE_DTO, UPDATE_DTO, RESPONSE_DTO> getMapper();
+
+    protected abstract Class<ENTITY> getEntityClass();
 
     public RESPONSE_DTO create(CREATE_DTO createDto) {
         ENTITY entity = getMapper().toEntity(createDto);
@@ -30,13 +33,16 @@ public abstract class GenericCrudService<ENTITY, ID, CREATE_DTO, UPDATE_DTO, RES
     }
 
     public RESPONSE_DTO getById(ID id) {
-        // todo handle exceptions correctly
-        ENTITY entity = getRepository().findById(id).orElseThrow();
+        ENTITY entity = getRepository()
+                .findById(id)
+                .orElseThrow(() -> throwException(id));
         return getMapper().toResponseDto(entity);
     }
 
     public RESPONSE_DTO update(ID id, UPDATE_DTO updateDto) {
-        ENTITY entity = getRepository().findById(id).orElseThrow();
+        ENTITY entity = getRepository()
+                .findById(id)
+                .orElseThrow(() -> throwException(id));
         getMapper().update(updateDto, entity);
         ENTITY saved = getRepository().save(entity);
         return getMapper().toResponseDto(saved);
@@ -44,5 +50,12 @@ public abstract class GenericCrudService<ENTITY, ID, CREATE_DTO, UPDATE_DTO, RES
 
     public void delete(ID id) {
         getRepository().deleteById(id);
+    }
+
+    // todo make message generic
+    public RuntimeException throwException(ID id) {
+        Class<ENTITY> entityClass = getEntityClass();
+        String message = "%s with id=%s not found".formatted(entityClass.getSimpleName(), id.toString());
+        return new EntityNotFoundException(message);
     }
 }
