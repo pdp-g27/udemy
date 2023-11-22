@@ -1,7 +1,10 @@
 package uz.abdurashidov.udemy.user.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
@@ -10,10 +13,11 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "`user`")
-public class User {
+@Table( name = "`user`" )
+public class User
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue( strategy = GenerationType.UUID )
     private UUID id;
     private String firstName;
     private String lastName;

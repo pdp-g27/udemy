@@ -7,5 +7,6 @@ import uz.abdurashidov.udemy.group.entity.Group;
 import java.util.UUID;
 
 @Repository
-public interface GroupRepository extends GenericSpecificationRepository<Group, UUID> {
+public interface GroupRepository extends GenericSpecificationRepository<Group, UUID>
+{
 }

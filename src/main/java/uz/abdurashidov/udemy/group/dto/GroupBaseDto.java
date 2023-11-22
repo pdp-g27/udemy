@@ -8,7 +8,8 @@ import uz.abdurashidov.udemy.group.entity.GroupType;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GroupBaseDto {
+public class GroupBaseDto
+{
     private String name;
     private GroupType groupType;
 }

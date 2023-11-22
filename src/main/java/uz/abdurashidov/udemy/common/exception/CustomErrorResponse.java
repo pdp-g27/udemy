@@ -12,10 +12,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude( JsonInclude.Include.NON_NULL )
 // todo implement generic one
 // todo handle sql exceptions and handle validator exceptions
-public class CustomErrorResponse {
+public class CustomErrorResponse
+{
     private String message;
     private HttpStatus status;
     private List<String> errors;

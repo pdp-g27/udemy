@@ -1,7 +1,10 @@
 package uz.abdurashidov.udemy.group.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
@@ -10,12 +13,13 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "`group`")
-public class Group {
+@Table( name = "`group`" )
+public class Group
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue( strategy = GenerationType.UUID )
     private UUID id;
     private String name;
-    @Enumerated(EnumType.STRING)
+    @Enumerated( EnumType.STRING )
     private GroupType groupType;
 }

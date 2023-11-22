@@ -4,6 +4,14 @@ server:
     context-path: /api/v1
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    port: 9000
+    url: jdbc:postgresql://localhost:${spring.datasource.port}/postgres
     username: postgres
     password: postgres
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql:
+    hibernate:
+      ddl-auto: update

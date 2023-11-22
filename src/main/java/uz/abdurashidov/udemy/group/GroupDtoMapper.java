@@ -11,21 +11,25 @@ import uz.abdurashidov.udemy.group.entity.Group;
 
 @RequiredArgsConstructor
 @Component
-public class GroupDtoMapper extends GenericDtoMapper<Group, GroupCreateDto, GroupUpdateDto, GroupResponseDto> {
+public class GroupDtoMapper extends GenericDtoMapper<Group, GroupCreateDto, GroupUpdateDto, GroupResponseDto>
+{
     private final ModelMapper mapper;
 
     @Override
-    public Group toEntity(GroupCreateDto groupCreateDto) {
-        return mapper.map(groupCreateDto, Group.class);
+    public Group toEntity( GroupCreateDto groupCreateDto )
+    {
+        return mapper.map( groupCreateDto, Group.class );
     }
 
     @Override
-    public GroupResponseDto toResponseDto(Group group) {
-        return mapper.map(group, GroupResponseDto.class);
+    public GroupResponseDto toResponseDto( Group group )
+    {
+        return mapper.map( group, GroupResponseDto.class );
     }
 
     @Override
-    public void update(GroupUpdateDto groupUpdateDto, Group group) {
-        mapper.map(groupUpdateDto, group);
+    public void update( GroupUpdateDto groupUpdateDto, Group group )
+    {
+        mapper.map( groupUpdateDto, group );
     }
 }

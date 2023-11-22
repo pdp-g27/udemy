@@ -11,21 +11,25 @@ import uz.abdurashidov.udemy.user.entity.User;
 
 @Component
 @RequiredArgsConstructor
-public class UserDtoMapper extends GenericDtoMapper<User, UserCreateDto, UserUpdateDto, UserResponseDto> {
+public class UserDtoMapper extends GenericDtoMapper<User, UserCreateDto, UserUpdateDto, UserResponseDto>
+{
     private final ModelMapper mapper;
 
     @Override
-    public User toEntity(UserCreateDto userCreateDto) {
-        return mapper.map(userCreateDto, User.class);
+    public User toEntity( UserCreateDto userCreateDto )
+    {
+        return mapper.map( userCreateDto, User.class );
     }
 
     @Override
-    public UserResponseDto toResponseDto(User user) {
-        return mapper.map(user, UserResponseDto.class);
+    public UserResponseDto toResponseDto( User user )
+    {
+        return mapper.map( user, UserResponseDto.class );
     }
 
     @Override
-    public void update(UserUpdateDto updateDto, User user) {
-        mapper.map(updateDto, user);
+    public void update( UserUpdateDto updateDto, User user )
+    {
+        mapper.map( updateDto, user );
     }
 }

@@ -5,10 +5,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode( callSuper = true )
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserCreateDto extends UserBaseDto {
+public class UserCreateDto extends UserBaseDto
+{
     private String password;
 }

@@ -7,5 +7,6 @@ import uz.abdurashidov.udemy.user.entity.User;
 import java.util.UUID;
 
 @Repository
-public interface UserRepository extends GenericSpecificationRepository<User, UUID> {
+public interface UserRepository extends GenericSpecificationRepository<User, UUID>
+{
 }

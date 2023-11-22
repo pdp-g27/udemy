@@ -1,6 +1,6 @@
 create table "user"
 (
-    id           uuid primary key,
+    id uuid primary key,
     first_name   varchar(20)         not null,
     last_name    varchar(20)         not null,
     middle_name  varchar(20),
@@ -11,7 +11,7 @@ create table "user"
 
 create table "group"
 (
-    id         uuid primary key,
+    id uuid primary key,
     name       varchar(20) not null,
     group_type varchar     not null
 )

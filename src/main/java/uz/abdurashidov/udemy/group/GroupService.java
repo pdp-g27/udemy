@@ -14,7 +14,8 @@ import java.util.UUID;
 @Getter
 @Service
 @RequiredArgsConstructor
-public class GroupService extends GenericCrudService<Group, UUID, GroupCreateDto, GroupUpdateDto, GroupResponseDto> {
+public class GroupService extends GenericCrudService<Group, UUID, GroupCreateDto, GroupUpdateDto, GroupResponseDto>
+{
     private final GroupDtoMapper mapper;
     private final GroupRepository repository;
     private final Class<Group> entityClass = Group.class;

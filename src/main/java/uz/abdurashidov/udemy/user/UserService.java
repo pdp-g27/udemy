@@ -16,7 +16,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Transactional
 @Getter
-public class UserService extends GenericCrudService<User, UUID, UserCreateDto, UserUpdateDto, UserResponseDto> {
+public class UserService extends GenericCrudService<User, UUID, UserCreateDto, UserUpdateDto, UserResponseDto>
+{
     private final UserDtoMapper mapper;
     private final UserRepository repository;
     private final Class<User> entityClass = User.class;

@@ -7,10 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode( callSuper = true )
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GroupResponseDto extends GroupBaseDto {
+public class GroupResponseDto extends GroupBaseDto
+{
     private UUID id;
 }
