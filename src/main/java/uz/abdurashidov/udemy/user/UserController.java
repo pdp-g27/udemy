@@ -1,8 +1,10 @@
 package uz.abdurashidov.udemy.user;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.abdurashidov.udemy.user.dto.UserCreateDto;
@@ -18,11 +20,18 @@ public class UserController
 {
     private final UserService userService;
 
-    @PostMapping
-    public ResponseEntity<UserResponseDto> createUser( @RequestBody UserCreateDto userCreateDto )
+    @PostMapping( "/register" )
+    public ResponseEntity<UserResponseDto> register( @RequestBody @Valid UserCreateDto userCreateDto )
     {
         UserResponseDto responseDto = userService.create( userCreateDto );
-        return ResponseEntity.ok( responseDto );
+        return ResponseEntity.status( HttpStatus.CREATED ).body( responseDto );
+    }
+
+    @PostMapping
+    public ResponseEntity<UserResponseDto> createUser( @RequestBody @Valid UserCreateDto userCreateDto )
+    {
+        UserResponseDto responseDto = userService.create( userCreateDto );
+        return ResponseEntity.status( HttpStatus.CREATED ).body( responseDto );
     }
 
     @GetMapping
@@ -40,7 +49,7 @@ public class UserController
     }
 
     @PutMapping( "/{id}" )
-    public ResponseEntity<UserResponseDto> updateUser( @PathVariable UUID id, @RequestBody UserUpdateDto updateDto )
+    public ResponseEntity<UserResponseDto> updateUser( @PathVariable UUID id, @Valid @RequestBody UserUpdateDto updateDto )
     {
         UserResponseDto responseDto = userService.update( id, updateDto );
         return ResponseEntity.ok( responseDto );
@@ -50,6 +59,7 @@ public class UserController
     public ResponseEntity<?> deleteUser( @PathVariable UUID id )
     {
         userService.delete( id );
-        return ResponseEntity.ok( "DELETED" );
+        return ResponseEntity.noContent().build();
+
     }
 }

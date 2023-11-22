@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -19,6 +19,6 @@ public class CustomErrorResponse
 {
     private String message;
     private HttpStatus status;
-    private List<String> errors;
+    private Map<String, Object> errors;
     private LocalDateTime timestamp;
 }

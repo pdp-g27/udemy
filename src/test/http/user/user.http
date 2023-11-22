@@ -1,0 +1,43 @@
+### Create user
+POST http://localhost:8081/api/v1/user
+Content-Type: application/json
+
+{
+  "password": "manjaro",
+  "phoneNumber": "937797499",
+  "firstName": "Asilbek",
+  "middleName": "Orifjon o'g'li",
+  "lastName": "Abdurashidov",
+  "email": "email"
+}
+
+### Register user
+POST http://localhost:8081/api/v1/user/register
+Content-Type: application/json
+
+{
+  "password": "manjaro",
+  "phoneNumber": "937797499",
+  "firstName": "Asilbek",
+  "middleName": "Orifjon o'g'li",
+  "lastName": "Abdurashidov",
+  "email": "email"
+}
+
+### Get users
+GET http://localhost:8081/api/v1/user
+
+### Get users
+GET http://localhost:8081/api/v1/user/{{id}}
+
+### Update users
+GET http://localhost:8081/api/v1/user/{{id}}
+Content-Type: application/json
+
+{
+  "phoneNumber": "937797499",
+  "firstName": "Asilbek",
+  "middleName": "Orifjon o'g'li",
+  "lastName": "Abdurashidov",
+  "email": "email"
+}
